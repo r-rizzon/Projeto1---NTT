@@ -6,7 +6,7 @@ class Banco:
         pass
         self.saldo = 0
         self.limite = 500
-        self.extrato = "."
+        self.extrato = ""
         self.numero_saques = 0
         self.LIMITE_SAQUES = 3
 
@@ -46,7 +46,7 @@ class Banco:
         else:
             print("Operação falhou! O valor informado é inválido.")
     
-    def extrato(self):
+    def mostrar_extrato(self):
         print("\n================ EXTRATO ================")
         print("Não foram realizadas movimentações." if not self.extrato else self.extrato)
         print(f"\nSaldo: R$ {self.saldo:.2f}")
@@ -54,13 +54,19 @@ class Banco:
 
     def menu_banco(self):
         while True:
-            key = input("Aperte uma das seguintes teclas: \n 1. Para depósito \n 2. Para saque \n 3. Para visualizar extrato \n Para cancelar a operação, aperte '4'.\n")
+            key = input("""
+Aperte uma das seguintes teclas:
+1. Para depósito
+2. Para saque
+3. Para visualizar extrato
+Para cancelar a operação, aperte '4'.\n
+""")
             if key == '1':
                 self.deposito()
             elif key == '2':
                 self.saque()
             elif key == '3':
-                self.extrato()
+                self.mostrar_extrato()
             elif key =='4':
                 break
             else:
